@@ -110,7 +110,7 @@ AdColony interstitial ads are a video ad immediately followed by an endcard.
 ### 注意点 ###
 1. 稀にAdColony側にて動画広告の再生を準備できていない可能性があります。その場合、動画再生するメソッドを呼んでもアプリは反応しません。そのため、AdColonyの設定（configure）から動画再生メソッドを呼び出すまで時間がかかる可能性があります。
 その際は video-ad@glossom.co.jp までお問い合わせ下さいませ。
-2. アプリ内に音楽や音声がある場合、AdColony動画広告の再生の間は再生しないようご設定下さい。`AdColonyAdDelegate` プロトコルの中にあるコールバックを利用してコントロールできます。詳しくは`AdColonyAdDelegate` [[here|API Details#adcolonyaddelegate-protocol-reference]]を参照してください。またはAdColonyAdvancedサンプルアプリを参照してください。
+2. アプリ内に音楽や音声がある場合、AdColony動画広告の再生の間は再生しないようご設定下さい。`AdColonyAdDelegate` プロトコルの中にあるコールバックを利用してコントロールできます。詳しくは`AdColonyAdDelegate` [here](https://github.com/AdColony/AdColony-iOS-SDK/wiki/API-Details#adcolonyaddelegate-protocol-reference)を参照してください。またはAdColonyAdvancedサンプルアプリを参照してください。
 
 ##Showing V4VC Videos##
 AdColony V4VC (Videos-for-Virtual-Currency)は[[interstitial ads|AdColony Product Overview]]の上で実装した動画広告を再生完了した時点で、ユーザーに仮想通貨を付与することができるシステムです。AdColony V4VCはユーザーの仮想通貨残高を追跡しません。ユーザーに仮想通貨を付与すべき時点でアプリケーションに通知する機能を提供しています。
