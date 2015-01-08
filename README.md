@@ -60,7 +60,7 @@ AdColonyを導入するにはXcodeでいくつか設定する必要がありま�
 ![Required linker flags](assets/linker-flags.png)
 
 ##Showing Videos Ads##
-AdColony SDKには、AdColonyを導入するための３つのサンプルアプリケーションが存在します。`AdColonyBasic`アプリでは[[Showing Interstitial Videos]] 部分を実装し、 `AdColonyV4VC`アプリでは[[Showing V4VC Videos]] 部分を実装しています。さらに詳しく知りたい場合は、[[API Details]]を参照してください。
+AdColony SDKには、AdColonyを導入するための３つのサンプルアプリケーションが存在します。`AdColonyBasic`アプリでは[[Showing Interstitial Videos]] 部分を実装し、 `AdColonyV4VC`アプリでは[[Showing V4VC Videos]] 部分を実装しています。さらに詳しく知りたい場合は、[API Details](https://github.com/AdColony/AdColony-iOS-SDK/wiki/API-Details)を参照してください。
 
 ##Showing Interstitial Videos##
 AdColony interstitial ads are a video ad immediately followed by an endcard.
