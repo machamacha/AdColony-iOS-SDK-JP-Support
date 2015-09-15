@@ -21,7 +21,7 @@ https://github.com/AdColony/AdColony-AdobeAIR-SDK
     * [Showing Interstitial Videos](#showing-interstitial-videos)
     * [Showing V4VC Videos](#showing-v4vc-videos)
     * [Showing Instant Feed Videos](#showing-instant-feed-videos)
-    * [よくある質問](#よくある質問)
+* [よくある質問](#よくある質問)
 
 ------
 
