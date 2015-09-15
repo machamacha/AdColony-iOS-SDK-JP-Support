@@ -21,6 +21,7 @@ https://github.com/AdColony/AdColony-AdobeAIR-SDK
     * [Showing Interstitial Videos](#showing-interstitial-videos)
     * [Showing V4VC Videos](#showing-v4vc-videos)
     * [Showing Instant Feed Videos](#showing-instant-feed-videos)
+    * [よくある質問](#よくある質問)
 
 ------
 
@@ -492,12 +493,12 @@ Instant-FeedはiOSのスクロールできるコンテンツ向けに設計を�
 
 ##よくある質問##
 ###基本情報に関して###
-- Q:各設定情報はどう言う意味ですか
+- Q:各設定情報はどんな意味ですか
 - A:
 	- **App ID**: こちらは各アプリを指します。
 	- **Zone ID**: こちらはアプリの下に紐づく、各掲載枠を指します。
 	- **Call Back URL**: 動画再生の成果等を送るURLになります。設定していただかなくても本サービスはご利用頂けます。
-	- **Custome ID**: CustomIDは、mediaのユーザーidを設定していただきます。設定した値はcall backを使用する場合、custom_idとして返します。
+	- **Custom ID**: CustomIDは、mediaのユーザーidを設定していただきます。設定した値はcall backを使用する場合、custom_idとして返します。
 	- **UDID**: 端末に紐づく固有のIDです。
 		*UDIDはAppleで取得を禁じられているため、AdColonyでは取得しておりません。*
 
