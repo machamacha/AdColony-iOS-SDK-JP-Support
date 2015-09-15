@@ -59,11 +59,54 @@ AdColonyを導入するにはXcodeでいくつか設定する必要がありま�
 
 ![Frameworks and libraries](assets/frameworks-libraries.png)
 
-**Target > Build Settings > Linking > Other Linker Flags**を開いて、下記の二つフラグを設定してください。
-* `-ObjC`
-* `-fobjc-arc` (AdColonyではARCを設定していないプロジェクトでも使うことができます。)
 
-![Required linker flags](assets/linker-flags.png)
+下記のように、info.plistに下記を二点を設定してください。
+
+![plist setting](assets/plist_setting_for_ios9.png)
+
+1) ATSを無効に設定するか（ATS設定１）、ATSに対応したドメインのみ有効にすか（ATS設定２）
+
+* ATS 設定 1
+
+        <key>NSAppTransportSecurity</key>
+        <dict>
+            <key>NSAllowsArbitraryLoads</key>
+            <true/>
+        </dict>
+
+* ATS 設定 2
+
+
+        <key>NSAppTransportSecurity</key>
+        <dict>
+            <key>NSAllowsArbitraryLoads</key>
+            <true/>
+            <key>NSExceptionDomains</key>
+            <dict>
+                <key>example.com</key>
+                <dict>
+                    <key>NSIncludesSubdomains</key>
+                    <true/>
+                </dict>
+            </dict>
+        </dict>
+
+
+2) deep-linkingを対応するため、下記を設定してください。
+
+        <key>LSApplicationQueriesSchemes</key>
+            <array>
+                <string>fb</string>
+                <string>instagram</string>
+                <string>tumblr</string>
+                <string>twitter</string>
+            </array>
+        </key>
+
+
+
+
+
 
 ##Showing Videos Ads##
 AdColony SDKには、AdColonyを導入するための３つのサンプルアプリケーションが存在します。`AdColonyBasic`アプリでは[[Showing Interstitial Videos]] 部分を実装し、 `AdColonyV4VC`アプリでは[[Showing V4VC Videos]] 部分を実装しています。さらに詳しく知りたい場合は、[API Details](https://github.com/AdColony/AdColony-iOS-SDK/wiki/API-Details)を参照してください。
