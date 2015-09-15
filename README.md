@@ -23,7 +23,7 @@ https://github.com/AdColony/AdColony-AdobeAIR-SDK
     * [Showing Instant Feed Videos](#showing-instant-feed-videos)
 * [よくある質問](#よくある質問)
     * [基本情報に関して](#基本情報に関して)
-    * [SDK仕様に関して](#SDK仕様に関して)
+    * [SDK仕様に関して](#sdk仕様に関して)
     * [動画再生に関して](#動画再生に関して)
     * [ストア申請に関して](#ストア申請に関して)
 
