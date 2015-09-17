@@ -332,7 +332,7 @@ CREATE TABLE `AdColony_Transactions` (
   `user_id` int(11) default NULL,
   `time` timestamp NULL default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+);
 ```
 
 ##Showing Instant Feed Videos**
