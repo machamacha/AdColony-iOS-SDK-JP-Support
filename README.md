@@ -10,9 +10,9 @@ https://github.com/AdColony/AdColony-iOS-SDK
 https://github.com/AdColony/AdColony-AdobeAIR-SDK
 
 ---
-###Notes###
-* AdColony 2.5 iOS SDK はiOS8で動作確認がされております。
-* AdColony 2.5 iOS SDK はAdColony 2.0とのAPIの互換性はありません。
+###iOS 9###
+iOS9に追加された新特性がSDK実装に影響があります。
+アプリiOS9(Xcode 7)でコンプライには、integration instructionsに従って実装することが必要となっております。
 
 ---
 ###Contents###
