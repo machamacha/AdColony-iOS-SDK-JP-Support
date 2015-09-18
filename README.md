@@ -10,10 +10,11 @@ https://github.com/AdColony/AdColony-iOS-SDK
 https://github.com/AdColony/AdColony-AdobeAIR-SDK
 
 ---
-###iOS 9###
-iOS9に追加された新特性がSDK実装に影響があります。
 
-アプリiOS9(Xcode 7)でコンプライには、integration instructionsに従って実装することが必要となっております。
+###iOS9###
+iOS9に追加された新特性がSDK実装に影響があります。  
+アプリiOS9(Xcode 7)でコンパイルには、  
+[iOS9実装手順](iOS-9.md)に従って実装することが必要となっております。  
 
 ---
 ###Contents###
@@ -60,11 +61,54 @@ AdColonyを導入するにはXcodeでいくつか設定する必要がありま�
 
 ![Frameworks and libraries](assets/frameworks-libraries.png)
 
-**Target > Build Settings > Linking > Other Linker Flags**を開いて、下記の二つフラグを設定してください。
-* `-ObjC`
-* `-fobjc-arc` (AdColonyではARCを設定していないプロジェクトでも使うことができます。)
 
-![Required linker flags](assets/linker-flags.png)
+下記のように、info.plistに下記1) 2) の二点を設定してください。
+
+![plist setting](assets/plist_setting_for_ios9.png)
+
+1) ATSを無効にする場合（ATS設定１）、ATSに対応したドメインのみ有効にする場合（ATS設定２）
+
+* ATS 設定 1
+
+        <key>NSAppTransportSecurity</key>
+        <dict>
+            <key>NSAllowsArbitraryLoads</key>
+            <true/>
+        </dict>
+
+* ATS 設定 2
+
+
+        <key>NSAppTransportSecurity</key>
+        <dict>
+            <key>NSAllowsArbitraryLoads</key>
+            <true/>
+            <key>NSExceptionDomains</key>
+            <dict>
+                <key>example.com</key>
+                <dict>
+                    <key>NSIncludesSubdomains</key>
+                    <true/>
+                </dict>
+            </dict>
+        </dict>
+
+
+2) deep-linkingに対応するため、下記を設定してください。
+
+        <key>LSApplicationQueriesSchemes</key>
+            <array>
+                <string>fb</string>
+                <string>instagram</string>
+                <string>tumblr</string>
+                <string>twitter</string>
+            </array>
+        </key>
+
+
+
+
+
 
 ##Showing Videos Ads##
 AdColony SDKには、AdColonyを導入するための３つのサンプルアプリケーションが存在します。`AdColonyBasic`アプリでは[[Showing Interstitial Videos]] 部分を実装し、 `AdColonyV4VC`アプリでは[[Showing V4VC Videos]] 部分を実装しています。さらに詳しく知りたい場合は、[API Details](https://github.com/AdColony/AdColony-iOS-SDK/wiki/API-Details)を参照してください。
