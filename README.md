@@ -17,6 +17,9 @@ iOS9に追加された新特性がSDK実装に影響があります。
 
 [iOS9実装手順](iOS-9.md)に従って実装することが必要となっております。
 
+Modified: 2015/09/17  
+SDK Version: 2.6.0  
+
 ---
 ###Contents###
 * [Xcode Project Setup](#xcode-project-setup)
