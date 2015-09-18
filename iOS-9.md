@@ -1,15 +1,16 @@
 ##Discussion##
-For publishers compiling their apps against the iOS 9 SDK (Xcode 7), AdColony's 2.6 SDK is a requirement.
-v2.6.0 of the AdColony SDK requires no API-usage modifications and, as such, will essentially be a drag-and-drop update. The only new requirement is that publishers make a couple of modifications to their apps' plists in order to be compatible with the changes introduced in iOS 9. Please note that failure to follow our instructions for disabling App Transport Security (ATS) will result in ad-serving being disabled for your application.
+iOS 9 SDK (Xcode 7)で開発してる開発者には AdColony iOS SDK 2.6が必須になります。
+
+v2.6.0はAPIの変更がないですので、SDKの入れ替えだけで更新できます。ただ、iOS9の仕様変更のため、plistsに幾つかの設定が必要です。ここの説明通りに実装しないと広告が表示しなくなります。
 
 ##Integration Instructions##
-Publishers will have to add two entries to their plists in order for the AdColony SDK to function at its full potential. The first entry, which is necessary to disable ATS for AdColony, is a strict requirement. Please note that if this entry is not present, or it is incorrect, the SDK will not be able to talk to our network - the side effect of this being complete lack of ad fill and, in turn, severe revenue implications.
+AdColony SDK正しく機能するために、開発者は二つの設定をplistsに追加する必要があります。一つ目はATSを無効する設定です。これは必ず設定してください、設定しないまたは設定は正しくない場合、SDKからAdColonyのサーバーに通信できなくなります。
 
-###Disabling ATS###
-App Transport Security (ATS) requires apps to make secure network connections via SSL and enforces HTTPS connections through its requirements on the SSL version, encryption cipher, and key length. We are currently working with all of our partners in an effort to become ATS-compatible. At this time, however, we require that publishers disable ATS for AdColony. This can be done two ways; please see below.
+###ATSを無効に###
+App Transport Security (ATS)はSSL経由して安全なネットワーク通信を保証する仕組みです。SSLのバージョン、暗号化の方法、keyの長さとかいろいろ厳しく要求してます。我々はパートナーと連携してATSの要件を満たす努力をしてますが、現段階では無効に設定をお願いいたします。無効に設定するには下記の二つ方法があります。
 
-**Option 1**  
-The easiest way to turn off ATS for AdColony is to disable it for the entire application by adding the following entry to the app's plist:
+**方法 1**  
+一番簡単なのは、下記のエントリーをplistファイルに追加すれば、ATSを完全に無効になります。
 
 ```xml
 <key>NSAppTransportSecurity</key>
@@ -19,8 +20,8 @@ The easiest way to turn off ATS for AdColony is to disable it for the entire app
 </dict>
 ```
 
-**Option 2**  
-Disabling ATS for AdColony does not require that it be turned off for the entire application, however. In an effort to be aligned with Apple's recommendations around ATS, publishers may want to ensure their apps are as ATS-compliant as they can be. If you are one of those publishers, then Option 2 is what you want. To disable ATS for AdColony but keep it enabled for other domains, simply add the XML from Option 1 to your app's plist (which disables ATS for the entire application), and then add an exception for each domain known to be ATS-compliant. Please refer to the example below.
+**方法 2**  
+AdColonyをATS無効に設定することはアプリ全部の通信をATS無効にする必要がないです。下記のように、アプリのATSのデフォルト設定を無効にして、ATSの条件に満たしてるドメインをATS有効リストに設定することも可能です。これできるだけ多くの通信をATS要件に満たすことができます。
 
 ```xml
 <key>NSAppTransportSecurity</key>
@@ -39,7 +40,8 @@ Disabling ATS for AdColony does not require that it be turned off for the entire
 ```
 
 ###Using canOpenURL:###
-Apple has also restricted usage of the `canOpenURL:` API, which AdColony leverages to land users in certain apps from our Dynamic End Cards (DECs). For example, one of our ad units could be for a new movie, and the associated DEC may present functionality to the user that allows them to send a tweet about it using the Twitter app. This kind of functionality is still possible in iOS 9, but publishers must enable it for the applications AdColony links to by authorizing each app’s URL scheme in their plist. Note that if the schemes are not added, users will be taken to the app’s website instead, which may result in an undesirable user experience. In order to enable deep-linking for the apps the AdColony SDK uses, please add the following entry to your apps plist:
+iOS9から`canOpenURL:`の利用は厳しく規制されました。利用するスキームを事前にplistに設定しないと利用できなくなります。
+AdColonyで表示する広告はこのAPIを利用する場合があります、例えば、広告のエンドカードにはTwitterアプリを経由して投稿する広告があります、この場合、Twitterのスキームを設定しないとアプリのウェブページに飛ぶことになります、これはユザービリティーにはよくないです。deep-link広告を有効するには下記をplistsに設定してください。
 
 ```xml
 <key>LSApplicationQueriesSchemes</key>
@@ -53,5 +55,5 @@ Apple has also restricted usage of the `canOpenURL:` API, which AdColony leverag
 ```
 
 ##Notes##
-* Important: Disabling ATS for AdColony is a strict requirement. Failure to do so will result in ads being turned off for your entire application.
-* v2.6.0 of the AdColony SDK is compiled with bitcode.
+* 重要：ATSを無効するにはAdColony SDKにとっては極めて重要です、設定しないと広告はでれなくなります。
+* v2.6.0 bitcodeを対応してます。
