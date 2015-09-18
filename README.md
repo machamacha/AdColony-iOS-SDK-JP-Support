@@ -61,11 +61,11 @@ AdColonyを導入するにはXcodeでいくつか設定する必要がありま�
 ![Frameworks and libraries](assets/frameworks-libraries.png)
 
 
-下記のように、info.plistに下記を二点を設定してください。
+下記のように、info.plistに下記1) 2) の二点を設定してください。
 
 ![plist setting](assets/plist_setting_for_ios9.png)
 
-1) ATSを無効に設定するか（ATS設定１）、ATSに対応したドメインのみ有効にすか（ATS設定２）
+1) ATSを無効にする場合（ATS設定１）、ATSに対応したドメインのみ有効にする場合（ATS設定２）
 
 * ATS 設定 1
 
@@ -93,7 +93,7 @@ AdColonyを導入するにはXcodeでいくつか設定する必要がありま�
         </dict>
 
 
-2) deep-linkingを対応するため、下記を設定してください。
+2) deep-linkingに対応するため、下記を設定してください。
 
         <key>LSApplicationQueriesSchemes</key>
             <array>
