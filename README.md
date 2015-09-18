@@ -11,11 +11,9 @@ https://github.com/AdColony/AdColony-AdobeAIR-SDK
 
 ---
 ###iOS9###
-iOS9に追加された新特性がSDK実装に影響があります。
-
-アプリiOS9(Xcode 7)でコンプライには、
-
-[iOS9実装手順](iOS-9.md)に従って実装することが必要となっております。
+iOS9に追加された新特性がSDK実装に影響があります。  
+アプリiOS9(Xcode 7)でコンプライには、  
+[iOS9実装手順](iOS-9.md)に従って実装することが必要となっております。  
 
 Modified: 2015/09/17  
 SDK Version: 2.6.0  
