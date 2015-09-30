@@ -12,9 +12,9 @@ https://github.com/AdColony/AdColony-AdobeAIR-SDK
 ---
 
 ###iOS9###
-iOS9に追加された新特性がSDK実装に影響があります。  
-アプリiOS9(Xcode 7)でコンパイルには、  
-[iOS9実装手順](iOS-9.md)に従って実装することが必要となっております。  
+iOS9にて追加された新しい仕様の中に、本SDKの実装に影響を及ぼすものが存在します。  
+アプリをiOS9ターゲット(Xcode 7以降)でビルドするためには、  
+[iOS9実装手順](iOS-9.md)に記載された手順に従った実装が必要となります。  
 
 ---
 ###Contents###
@@ -32,15 +32,17 @@ iOS9に追加された新特性がSDK実装に影響があります。
 ------
 
 ##Xcode Project Setup##
-AdColonyを導入するにはXcodeでいくつか設定する必要があります。CocoaPodsの利用を推奨いたします。
+AdColonyを導入するにはXcodeにていくつかの設定を行っていただく必要があります。  
+設定には簡単なライブラリ管理ツールであるCocoaPodsをご利用いただくことを推奨します。
 ###CocoaPodsで設定###
-AdColonyを導入する一番簡単な方法は[CocoaPods](https://cocoapods.org)を利用することです。下記をPodfileに設定することで最新のAdColonyをXcodeプロジェクトに導入することができます。
+[CocoaPods](https://cocoapods.org)は、AdColonyを導入するもっとも簡単な方法です。  
+下記をPodfileに設定することで最新のAdColonyをXcodeプロジェクトに導入することができます。
 
 ```
 pod 'AdColony'
 ```
 
-指定するバージョンをインストールしたい場合、[CocoaPod repository](https://github.com/CocoaPods/Specs/tree/master/Specs/AdColony)にもあるように、下記のようにバージョン指定して導入することもできます。
+SDKのバージョンを指定してインストールする必要がある場合、[CocoaPod repository](https://github.com/CocoaPods/Specs/tree/master/Specs/AdColony)に存在するバージョンであれば、下記のような指定で導入することもできます。
 
 ```
 pod 'AdColony', '~> 2.6.0'
@@ -82,7 +84,7 @@ pod 'AdColony', '~> 2.6.0'
 
 1) ATSを無効にする場合（ATS設定１）、ATSに対応したドメインのみ有効にする場合（ATS設定２）
 
-* ATS 設定 1
+* ATS 設定 1 (ATSを無効にする場合)
 
         <key>NSAppTransportSecurity</key>
         <dict>
@@ -90,7 +92,7 @@ pod 'AdColony', '~> 2.6.0'
             <true/>
         </dict>
 
-* ATS 設定 2
+* ATS 設定 2 (ATSに対応したドメインのみ有効にする場合)
 
 
         <key>NSAppTransportSecurity</key>
