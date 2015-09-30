@@ -32,7 +32,21 @@ iOS9に追加された新特性がSDK実装に影響があります。
 ------
 
 ##Xcode Project Setup##
-AdColonyを導入するにはXcodeでいくつか設定する必要があります。
+AdColonyを導入するにはXcodeでいくつか設定する必要があります。CocoaPodsを利用するのをお推奨します。
+###CocoaPodsで設定###
+AdColonyを導入する一番簡単の方法は[CocoaPods](https://cocoapods.org)を利用することです。下記をPodfileに設定することで最新のAdColonyをXcodeプロジェクトに導入することができます。
+
+```
+pod 'AdColony'
+```
+
+指定するバージョンをインストールしたい場合、[CocoaPod repository](https://github.com/CocoaPods/Specs/tree/master/Specs/AdColony)に存在する限り、下記のようにバージョン指定して導入することもできます。
+
+```
+pod 'AdColony', '~> 2.6.0'
+```
+ 
+###手動で設定###
 
 `AdColony.framework`をプロジェクトにコピー(ドラッグ)してください。また、Adcolonyを利用する全てのターゲットに追加してください。
 
@@ -41,7 +55,7 @@ AdColonyを導入するにはXcodeでいくつか設定する必要がありま�
 ![Architectures and Base SDK version](assets/architectures.png)
 
 **Target > Build Phases > Link Binary With Libraries**を開いて、下記のライブラリとフレームワークを追加してください。
-* `libz.1.2.5.dylib`
+* `libz.1.2.5.tbd`
 * `AdColony.framework`
 * `AdSupport.framework`  (Set to Optional)
 * `AudioToolbox.framework`
