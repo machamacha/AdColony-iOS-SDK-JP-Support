@@ -12,9 +12,9 @@ https://github.com/AdColony/AdColony-AdobeAIR-SDK
 ---
 
 ###iOS9###
-iOS9での仕様変更がSDKの実装に影響がございます。  
-アプリをiOS9(Xcode 7)でコンパイルする場合、  
-[iOS9実装手順](iOS-9.md)に従って実装することが必要です。  
+iOS9にて追加された新しい仕様の中に、本SDKの実装に影響を及ぼすものが存在します。  
+アプリをiOS9ターゲット(Xcode 7以降)でビルドするためには、  
+[iOS9実装手順](iOS-9.md)に記載された手順に従った実装が必要となります。  
 
 ---
 ###Contents###
@@ -32,7 +32,23 @@ iOS9での仕様変更がSDKの実装に影響がございます。
 ------
 
 ##Xcode Project Setup##
-AdColonyを導入するにはXcodeでいくつか設定する必要があります。
+AdColonyを導入するにはXcodeにていくつかの設定を行っていただく必要があります。  
+設定には簡単なライブラリ管理ツールであるCocoaPodsをご利用いただくことを推奨します。
+###CocoaPodsで設定###
+[CocoaPods](https://cocoapods.org)は、AdColonyを導入するもっとも簡単な方法です。  
+下記をPodfileに設定することで最新のAdColonyをXcodeプロジェクトに導入することができます。
+
+```
+pod 'AdColony'
+```
+
+SDKのバージョンを指定してインストールする必要がある場合、[CocoaPod repository](https://github.com/CocoaPods/Specs/tree/master/Specs/AdColony)に存在するバージョンであれば、下記のような指定で導入することもできます。
+
+```
+pod 'AdColony', '~> 2.6.0'
+```
+ 
+###手動で設定###
 
 `AdColony.framework`をプロジェクトにコピー(ドラッグ)してください。また、Adcolonyを利用する全てのターゲットに追加してください。
 
@@ -41,7 +57,7 @@ AdColonyを導入するにはXcodeでいくつか設定する必要がありま�
 ![Architectures and Base SDK version](assets/architectures.png)
 
 **Target > Build Phases > Link Binary With Libraries**を開いて、下記のライブラリとフレームワークを追加してください。
-* `libz.1.2.5.dylib`
+* `libz.1.2.5.tbd`
 * `AdColony.framework`
 * `AdSupport.framework`  (Set to Optional)
 * `AudioToolbox.framework`
@@ -68,7 +84,7 @@ AdColonyを導入するにはXcodeでいくつか設定する必要がありま�
 
 1) ATSを無効にする場合（ATS設定１）、ATSに対応したドメインのみ有効にする場合（ATS設定２）
 
-* ATS 設定 1
+* ATS 設定 1 (ATSを無効にする場合)
 
         <key>NSAppTransportSecurity</key>
         <dict>
@@ -76,7 +92,7 @@ AdColonyを導入するにはXcodeでいくつか設定する必要がありま�
             <true/>
         </dict>
 
-* ATS 設定 2
+* ATS 設定 2 (ATSに対応したドメインのみ有効にする場合)
 
 
         <key>NSAppTransportSecurity</key>
