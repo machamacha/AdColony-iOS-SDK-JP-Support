@@ -20,8 +20,8 @@ iOS9にて追加された新しい仕様の中に、本SDKの実装に影響を�
 ###Contents###
 * [Xcode Project Setup](#xcode-project-setup)
 * [Showing Videos Ads](#showing-videos-ads)
+　　* [Showing V4VC Videos](#showing-v4vc-videos)
     * [Showing Interstitial Videos](#showing-interstitial-videos)
-    * [Showing V4VC Videos](#showing-v4vc-videos)
     * [Showing Instant Feed Videos](#showing-instant-feed-videos)
 * [よくある質問](#よくある質問)
     * [基本情報に関して](#基本情報に関して)
